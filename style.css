@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body {
+    background-color: orange;
+}
+.item1 h1 {
+    font-family: 'Major Mono Display', monospace;
+    font-size: 6rem;
+    margin-left: 2rem;
+}
+  /* Huvudsakliga grid 10 rader o. 8 columner*/
+
+.item1 { 
+    grid-area: header; 
+    background-color: violet; 
+    grid-column: 1/8;
+    grid-row: 1;
+}
+        
+.item2 { 
+    grid-area: sidebar;   
+    background-color: blue; 
+    grid-column: 1/8;
+    grid-row: 2/10;
+}
+
+.aside-day-info {
+ height: 10rem;
+ background-color: lightblue;
+
+
+}
+
+.item3 { 
+    grid-area: main; 
+    background-color: green; 
+    grid-column: 2/8;
+    grid-row: 2/10;
+}
+.item4 { 
+    grid-area: footer; 
+    background-color: red; 
+    grid-column: 1/8;
+    grid-row: 10;
+    justify-content: flex-end;
+}
+
+.grid-container {
+  display: grid; 
+  grid-auto-rows: minmax(100px, auto);
+  grid-gap: 10px;
+  
+  padding: 10px;
+  height: 100vh;
+ 
+}
+
+
+h3 {
+font-size: 1.8rem;
+}
+
+
+li {
+    list-style-type: none;
+    padding:.5rem
+}
+
+/*Reusable classes*/
+.flex{display: flex;}
+.align-center{align-items: center;}
+.justify-center{justify-content: center;}
+.justify-between {justify-content: space-between;}
+.column {flex-direction: column;}
+.grow {flex: 1;}
+
