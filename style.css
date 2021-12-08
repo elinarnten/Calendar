@@ -30,9 +30,6 @@ body {
 .aside-day-info {
  padding: 1rem;}
 
- .aside-day-info img {
-     width: 5rem;
- }
 
 .item3 { 
     grid-area: main; 
