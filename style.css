@@ -56,9 +56,22 @@ body {
   height: 100vh;
  
 }
-.calender ul {
+.calendar ul {
     justify-content: space-around;
+    padding: 0;
 }
+#days {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    height: 100%;
+    
+}
+.day {
+    padding: 5px;
+    border-top: solid black 1px;
+}
+
 
 h3 {
 font-size: 1.5rem;
