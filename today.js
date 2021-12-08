@@ -9,6 +9,9 @@ function getCurrentDayInfo() {
     setInterval(renderTime, 1000);
 }
 
+/**
+ * Uppdates page with current time, day and date.
+ */
 function renderTime() {
     const date = new Date();
 
@@ -22,6 +25,11 @@ function renderTime() {
     dateElement.innerText = getCurrentDateString(date);
 }
 
+/**
+ * Gets time from date.
+ * @param {Date} date 
+ * @returns {String} current time in hours, minutes and seconds.
+ */
 function getCurrentTimeString(date) {
     let seconds = date.getSeconds();
     let minutes = date.getMinutes();
@@ -34,6 +42,11 @@ function getCurrentTimeString(date) {
     return hours + ":" + minutes + ":" + seconds;
 }
 
+/**
+ * Gets day name from date.
+ * @param {Date} date 
+ * @returns {String} current weekday in swedish.
+ */
 function getCurrentWeekday(date) {
     const weekday = date.getDay();
 
@@ -48,6 +61,11 @@ function getCurrentWeekday(date) {
     }
 }
 
+/**
+ * Gets the current date.
+ * @param {Date} date 
+ * @returns {String} in order year, month, day.
+ */
 function getCurrentDateString(date) {
 
     let dd = date.getDate();
@@ -57,12 +75,6 @@ function getCurrentDateString(date) {
     if (dd <10) dd = '0' + dd;
     if (mm <10) mm = '0' + mm;
     
-    /* 
-    let dd = String(date.getDate()).padStart(2, '0');
-    let mm = String(date.getMonth() + 1).padStart(2, '0');
-    let yyyy = date.getFullYear(); */
-
     return yyyy + "-" + mm + "-" + dd;
-
 }
 
