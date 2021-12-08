@@ -1,13 +1,29 @@
 
 // const weekday = ["Måndag","Tisdag","Onsdag","Torsdag","Fredag","Lördag","Söndag"];
-
 window.onload = ('load', main);
 
 function main() {
     getCalendar();
 }
 
-async function getCalendar() {
+function getCalendar() {
+
+    const calendar = document.getElementById('calendar2');
+
+    for (let day = 1; day < 31; day++) {
+        calendar.insertAdjacentHTML('beforeend', `<div class = "day"> ${day} </div`);
+    }
+} 
+
+
+
+
+
+
+
+
+
+/*async function getCalendar() {
     const currentMonth = new Date().getMonth();
     const currentYear = new Date().getFullYear();
     const currentDay = new Date().getDay();
@@ -23,6 +39,6 @@ async function getCalendar() {
     /*
     fetch(`http://sholiday.faboul.se/dagar/v2.1/${currentYear}/${currentMonth}/${currentDay}`)
     .then(res => res.json())
-    .then(data => console.log(data));*/
+    .then(data => console.log(data));
 
-}
+}*/
