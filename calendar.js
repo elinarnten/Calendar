@@ -8,7 +8,7 @@ function main() {
 
 function getCalendar() {
 
-    const calendar = document.getElementById('calendar2');
+    const calendar = document.getElementById('days');
 
     for (let day = 1; day < 31; day++) {
         calendar.insertAdjacentHTML('beforeend', `<div class = "day"> ${day} </div`);
