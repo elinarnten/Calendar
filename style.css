@@ -74,6 +74,14 @@ li {
 }
 
 /* todo */
+.todo {
+    border: inset;
+    padding: 1rem; 
+}
+.todo-header {
+    margin-left:1.5rem;
+}
+
 .todo ul {
     padding: 0 1rem;
 }
