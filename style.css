@@ -25,6 +25,7 @@ body {
     background-color: #d8d7fc; 
     grid-column: 1/1;
     grid-row: 2/9;
+    padding: .5rem;
 }
 
 .aside-day-info {
@@ -71,6 +72,37 @@ li {
     padding:.5rem;
     font-family: 'Fuzzy Bubbles', cursive;
 }
+
+/* todo */
+.todo ul {
+    padding: 0 1rem;
+}
+
+.tasks {
+    display: flex;
+   
+       
+}
+
+.tasks li {
+    margin-right: 1.5rem;
+   
+}
+i {
+    padding: 0 .1rem;
+}
+.add-tasks {
+    display: flex;
+    margin-left: 1rem;
+     
+}
+.add-tasks button {
+    margin-left: .5rem;
+}
+.add-new-task {
+    padding: .4rem;
+}
+
 
 /*Reusable classes*/
 .flex{display: flex;}
