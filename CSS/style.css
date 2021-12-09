@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body {
+    background-color: white;
+    
+}
+.item1 h1 {
+    font-family: 'Major Mono Display', monospace;
+    font-size: 6rem;
+    margin-left: 2rem;
+}
+  /* Huvudsakliga grid 10 rader o. 8 columner*/
+
+.item1 { 
+    grid-area: header; 
+    background-color: #d8d7fc; 
+    grid-column: 1/9;
+    grid-row: 1;
+}
+        
+.item2 { 
+    grid-area: sidebar;   
+    background-color: #d8d7fc; 
+    grid-column: 1/1;
+    grid-row: 2/9;
+}
+
+.aside-day-info {
+ padding: 1rem;}
+
+
+.item3 { 
+    grid-area: main; 
+    background-color: #d8d7fc;
+    grid-column: 2/9;
+    grid-row: 2/9;
+}
+.item4 { 
+    grid-area: footer; 
+    background-color: #d8d7fc; 
+    grid-column: 1/9;
+    grid-row: 9;
+    justify-content: flex-end;
+    height:2rem;
+    padding-top: .5rem;
+    padding-right: 1rem;
+}
+
+.grid-container {
+  display: grid; 
+  grid-auto-rows: minmax(100px, auto);
+  grid-gap: 10px;
+  
+  padding: 10px;
+  height: 100vh;
+ 
+}
+.calender ul {
+    justify-content: space-around;
+}
+
+h3 {
+font-size: 1.5rem;
+font-family: 'Fuzzy Bubbles', cursive;
+}
+
+
+li {
+    list-style-type: none;
+    padding:.5rem;
+    font-family: 'Fuzzy Bubbles', cursive;
+}
+
+/*Reusable classes*/
+.flex{display: flex;}
+.align-center{align-items: center;}
+.justify-center{justify-content: center;}
+.justify-between {justify-content: space-between;}
+.column {flex-direction: column;}
+.grow {flex: 1;}
+
+
+
+@media (max-width: 400px) {
+
+}
