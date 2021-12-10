@@ -68,6 +68,14 @@ let tasklist = [
   'julpynta'
 ];
 
+function deleteItem(e) {
+  let task= e.target.parentElement.previousElementSibling.innerHTML;
+  let index = tasklist.indexOf(task);
+  if(index !== -1){
+    tasklist.splice(index, 1);
+  }
+  populateList();
+}
 
 function populateList() {
   listElement.innerHTML='';
@@ -84,6 +92,9 @@ function populateList() {
     deleteElement.innerHTML = '<i class="fas fa-trash"></i>';
     newItem.appendChild(deleteElement);
 
+    deleteElement.addEventListener('click', (e) => deleteItem(e));
+
+
     // add li to ul
     listElement.appendChild(newItem);
   });
@@ -92,6 +103,14 @@ function populateList() {
 }
 populateList();
 
+
+function addTask () {
+  if (inputElement.value) {
+    tasklist.push(inputElement.value);
+    populateList();
+  }
+}
+
 formElement.addEventListener('submit', function(e) {
   e.preventDefault();
 addTask();
@@ -99,9 +118,4 @@ addTask();
 });
 
 
-function addTask () {
- if (inputElement.value) {
-   tasklist.push(inputElement.value);
-   populateList();
- }
-}
+
