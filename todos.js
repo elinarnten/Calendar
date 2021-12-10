@@ -68,8 +68,8 @@ let tasklist = [
   'julpynta'
 ];
 
-function deleteItem(e) {
-  let task= e.target.parentElement.previousElementSibling.innerHTML;
+function deleteItem(event) {
+  let task= event.target.parentElement.previousElementSibling.innerHTML;
   let index = tasklist.indexOf(task);
   if(index !== -1){
     tasklist.splice(index, 1);
@@ -92,8 +92,12 @@ function renderList() {
     deleteElement.innerHTML = '<i class="fas fa-trash"></i>';
     newItem.appendChild(deleteElement);
 
-    deleteElement.addEventListener('click', (e) => deleteItem(e));
-
+    deleteElement.addEventListener('click', (event) => deleteItem(event));
+    // Add edit button
+    // let editElement = document.createElement('a');
+    // editElement.classList.add('edit');
+    // editElement.innerHTML = '<i class="fas fa-edit"></i>';
+    // newItem.appendChild(editElement);
 
     // add li to ul
     listElement.appendChild(newItem);
@@ -111,8 +115,8 @@ function addTask () {
   }
 }
 
-formElement.addEventListener('submit', function(e) {
-  e.preventDefault();
+formElement.addEventListener('submit', function(event) {
+  event.preventDefault();
 addTask();
 
 });

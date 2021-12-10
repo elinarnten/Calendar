@@ -121,11 +121,13 @@ li {
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+    
 }
 .list ul li i {
     cursor: pointer;
     color: red;
     padding: 1rem;
+    
 }
 .list ul li i:hover {
     background-color: #f1f1f1;
@@ -140,7 +142,12 @@ li {
     display: flex;
 
 }
+span {
+    font-family: 'Architects Daughter', cursive;
+    font-size: 1.5rem;
+    padding-right: .5rem;
 
+}
 .add-task input {
     border: 1px solid #EEE;
     border-top-left-radius: 5px;
@@ -148,7 +155,7 @@ li {
     flex-grow: 1;
     padding: 1rem;
     outline:none;
-
+   
 }
 
 .add-task input:hover {
