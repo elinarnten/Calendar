@@ -36,10 +36,10 @@
         
 
         <!-- Todo start-->
-        <div class="todo">      
+        <div class="todo-container">      
         <h3 class="todo-header">Att göra:</h3>
             <ul> <!--Will be injected by Javascript-->
-            <div class="tasks">
+            <!-- <div class="tasks">
                 <li>Julpynta</li> 
                 <i class="material-icons">edit</i>
                 <i class="material-icons">delete</i>  
@@ -48,20 +48,18 @@
                 <li>Slå in julklappar</li> 
                 <i class="material-icons">edit</i>
                 <i class="material-icons">delete</i> 
-            </div>
+            </div> -->
             </ul> 
         
 
-            <form class="add-tasks">
-                <input class="add-new-task" type="text" placeholder="Koka kaffe">
-                <button>Lägg till</button> 
-                <!-- <button><i class="material-icons">
-                    edit
-                </i></button>
-                <button id= btn-remove><i class="material-icons">
-                    delete
-                </i></button> -->
-               
+            <form class="todo-form">
+                
+                <input class="todo" type="todo" id="todo" placeholder="Koka kaffe">
+                <input class="date" type="date" id="date">
+                <button class="add-btn">Lägg till</button>
+                
+
+                
             </form>
         </div>
         </div> 
