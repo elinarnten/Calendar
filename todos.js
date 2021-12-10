@@ -74,10 +74,10 @@ function deleteItem(e) {
   if(index !== -1){
     tasklist.splice(index, 1);
   }
-  populateList();
+ renderList();
 }
 
-function populateList() {
+function renderList() {
   listElement.innerHTML='';
   tasklist.forEach(function(item) {
     let newItem = document.createElement('li');
@@ -101,13 +101,13 @@ function populateList() {
   totalTasksElement.innerHTML = tasklist.length;
   inputElement.value='';
 }
-populateList();
+renderList();
 
 
 function addTask () {
   if (inputElement.value) {
     tasklist.push(inputElement.value);
-    populateList();
+    renderList();
   }
 }
 
