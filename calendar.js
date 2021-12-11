@@ -15,6 +15,27 @@ function getCalendar() {
     }
 } 
 
+const currentDay = new Date().getDate();
+const currentYear = new Date().getFullYear();
+const date = new Date();
+
+const months = [
+    "Januari",
+    "Februari",
+    "Mars",
+    "April",
+    "Maj",
+    "Juni",
+    "Juli",
+    "Augusti",
+    "September",
+    "Oktober",
+    "November",
+    "December",
+];
+document.querySelector('.month h1').innerHTML = currentYear;
+document.querySelector('.month h3').innerHTML = months[date.getMonth()];
+document.querySelector('.month p').innerHTML = currentDay;
 
 
 
