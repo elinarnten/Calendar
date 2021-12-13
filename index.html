@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@700&family=Major+Mono+Display&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@700&family=Major+Mono+Display&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>.DO IT</title>
     <script defer src="todos.js"></script>
     <script defer src="today.js"></script>
@@ -18,78 +19,91 @@
     <link rel="stylesheet" href="CSS/todos.css">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <div class="grid-container">
-        <div class="item1 flex"> 
-            <h1 class="flex align-center">.DOIT</h1> 
+        <div class="item1 flex">
+            <h1 class="flex align-center">.DOIT</h1>
         </div>
         <div class="item2">
             <div class="aside-day-info flex">
                 <div class="info-dag">
-                    <h3 id="day"></h3> 
-                    <h3 id="date"></h3> 
+                    <h3 id="day"></h3>
+                    <h3 id="date"></h3>
                     <h3 id="time"></h3>
                 </div>
             </div>
-        
-        
 
-        <!-- Todo start-->
-        <div class="todo">      
-        <h3 class="todo-header">Att göra:</h3>
-            <ul> <!--Will be injected by Javascript-->
-            <div class="tasks">
-                <li>Julpynta</li> 
-                <i class="material-icons">edit</i>
-                <i class="material-icons">delete</i>  
-            </div>
-            <div class="tasks">
-                <li>Slå in julklappar</li> 
-                <i class="material-icons">edit</i>
-                <i class="material-icons">delete</i> 
-            </div>
-            </ul> 
-        
 
-            <form class="add-tasks">
-                <input class="add-new-task" type="text" placeholder="Koka kaffe">
-                <button>Lägg till</button> 
-                <!-- <button><i class="material-icons">
+
+            <!-- Todo start-->
+            <div class="todo">
+                <h3 class="todo-header">Att göra:</h3>
+                <ul>
+                    <!--Will be injected by Javascript-->
+                    <div class="tasks">
+                        <li>Julpynta</li>
+                        <i class="material-icons">edit</i>
+                        <i class="material-icons">delete</i>
+                    </div>
+                    <div class="tasks">
+                        <li>Slå in julklappar</li>
+                        <i class="material-icons">edit</i>
+                        <i class="material-icons">delete</i>
+                    </div>
+                </ul>
+
+
+                <form class="add-tasks">
+                    <input class="add-new-task" type="text" placeholder="Koka kaffe">
+                    <button>Lägg till</button>
+                    <!-- <button><i class="material-icons">
                     edit
                 </i></button>
                 <button id= btn-remove><i class="material-icons">
                     delete
                 </i></button> -->
-               
-            </form>
+
+                </form>
+            </div>
         </div>
-        </div> 
-        
+
         <!-- Todo End-->
 
-        <div class="item3 "> 
-            <h3>Kalender</h3>
-            <div class ="calender">
-                <ul class="flex"> 
-                    <li>Mån</li>
-                    <li>Tis</li>
-                    <li>Ons</li>
-                    <li>Tor</li>
-                    <li>Fre</li>
-                    <li>Lör</li>
-                    <li>Sön</li>
-                </ul>
-            </div>   
-        </div>  
+        <div class="item3 ">
+            <div class="calender">
+                <div class="month flex justify-between">
+                    <i id="prev-button" class="material-icons left">chevron_left</i>
+                    <h1 id="current-month"></h1>
+                    <i id="next-button" class="material-icons">chevron_right</i>
+                </div>
+                <div id="weekdays">
+                    <div>Mån</div>
+                    <div>Tis</div>
+                    <div>Ons</div>
+                    <div>Tor</div>
+                    <div>Fre</div>
+                    <div>Lör</div>
+                    <div>Sön</div>
+                </div>
+                <div class="days"></div>
+                
+                
+                <div id="date-container"></div>
+            </div>
+        </div>
+        
+
 
         <div class="item4 flex">
             <p>&copy;2021 Elin Arntén, Rosanna Pistone, Jannie Bäckman Kuurne</p>
         </div>
     </div>
-    
+
 
 
 
 </body>
+
 </html>
