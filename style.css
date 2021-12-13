@@ -75,43 +75,112 @@ li {
 }
 
 /* todo */
-.todo {
-    border: inset;
-    padding: 1rem; 
-}
-.todo-header {
-    margin-left:1.5rem;
-}
 
-.todo ul {
-    padding: 0 1rem;
-}
-
-.tasks {
+.todo-container {
+    background: linear-gradient(#d8d7fc, #7978a0,#d8d7fc);
     display: flex;
-   
-       
+    flex-grow:1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
 }
 
-.tasks li {
-    margin-right: 1.5rem;
-   
-}
-i {
-    padding: 0 .1rem;
-}
-.add-tasks {
+.todo-list {
+    background-color: whitesmoke;
     display: flex;
-    margin-left: 1rem;
-     
-}
-.add-tasks button {
-    margin-left: .5rem;
-}
-.add-new-task {
-    padding: .4rem;
+    flex-direction: column;
+    min-width: 400px;
+    max-width: 600px;
+    border-radius: 10px;
+    height: 500px;
+    box-shadow: 0px 0px 20px whitesmoke;
 }
 
+.header {
+    padding: 2rem;
+}
+.header h3 {
+    color: grey;
+    text-align: center;
+}
+
+.list {
+    flex-grow: 1;
+    padding: 2rem;
+    overflow-y: scroll;
+}
+.list ul {
+    list-style-type: none;
+    margin:0;
+    padding: 0;
+}
+
+.list ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    
+}
+.list ul li i {
+    cursor: pointer;
+    color: red;
+    padding: 1rem;
+    
+}
+.list ul li i:hover {
+    background-color: #f1f1f1;
+} 
+
+
+.i {
+    cursor: pointer;
+}
+.add-task {
+    padding: 2rem;
+    display: flex;
+
+}
+span {
+    font-family: 'Architects Daughter', cursive;
+    font-size: 1.5rem;
+    padding-right: .5rem;
+
+}
+.add-task input {
+    border: 1px solid #EEE;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    flex-grow: 1;
+    padding: 1rem;
+    outline:none;
+   
+}
+
+.add-task input:hover {
+border: 1px solid #DDD;
+}
+.add-task input:active {
+    border: 1px solid #CCC;
+}
+.add-task input:focus {
+    border: 1px solid #7978a0;
+}
+
+
+.add-task button {
+    outline: none;
+    border: none;
+    padding: 1rem;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #7978a0;
+    color: #EEE;
+    cursor: pointer;
+}
+
+    
 
 /*Reusable classes*/
 .flex{display: flex;}
