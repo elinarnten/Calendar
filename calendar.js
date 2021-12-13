@@ -41,20 +41,14 @@ function getCalendar(date, dateContainer) {
         const searchDate = (year + "-" + String(month).padStart(2, '0') + "-" + (String(i).padStart(2, '0')));
         dayContainer.setAttribute("data-date", searchDate)
         dateContainer.appendChild(dayContainer);
-        console.log(month, day);
+        markUpCurrentDay(dayContainer);
+        /* console.log(month, day);
         if (i === day) {
             dayContainer.style.backgroundColor = 'red';
-        } 
+        } */ 
     }
 }
 
-function markUpCurrentDay() {
-    let i = 1;
-    const day = (date.getDate());
-    if (i === day) {
-        dayContainer.style.backgroundColor = 'red';
-    }
-}
 
 /* if (i === day) {
     dayContainer.style.backgroundColor = 'red';
@@ -94,8 +88,16 @@ function nextMonth(){
 
 function uppdateMonthName(date) {
     const months = ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'];
-    const monthName = months[date.getMonth()];
+    const monthName = months[date.getMonth()] +" "+ date.getFullYear();
     document.getElementById('current-month').innerText = monthName;
+}
+
+function markUpCurrentDay(dayContainer){
+    const printDate = date.getDate();
+    const today = date.getDay();
+    if (printDate == today) {
+    dayContainer.style.backgroundColor = 'red';
+    }
 }
 
 const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
