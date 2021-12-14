@@ -2,6 +2,7 @@ window.addEventListener('load', main);
 
 function main(){
     getCurrentDayInfo();
+    getWeather();
 }
 
 function getCurrentDayInfo() {
@@ -76,3 +77,10 @@ function getCurrentDateString(date) {
     return yyyy + "-" + mm + "-" + dd;
 }
 
+async function getWeather() {
+    const response = await fetch('https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/11.97593329/lat/57.71198784/data.json');
+    const data = await response.json();
+   
+    const location = data.point.lat((day))
+    console.log(location);
+}
