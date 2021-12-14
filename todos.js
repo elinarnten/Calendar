@@ -93,11 +93,11 @@ function renderList() {
     newItem.appendChild(deleteElement);
 
     deleteElement.addEventListener('click', (event) => deleteItem(event));
-    // Add edit button
-    // let editElement = document.createElement('a');
-    // editElement.classList.add('edit');
-    // editElement.innerHTML = '<i class="fas fa-edit"></i>';
-    // newItem.appendChild(editElement);
+    //Add edit button
+    //let editElement = document.createElement('a');
+    //editElement.classList.add('edit');
+    //editElement.innerHTML = '<i class="fas fa-edit"></i>';
+    //newItem.appendChild(editElement);
 
     // add li to ul
     listElement.appendChild(newItem);
