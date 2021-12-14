@@ -70,6 +70,13 @@ function renderList() {
     deleteElement.innerHTML = '<i class="fas fa-trash"></i>';
     newItem.appendChild(deleteElement);
     deleteElement.addEventListener('click', (event) => deleteItem(event));
+
+    //Add edit button
+    //let editElement = document.createElement('a');
+    //editElement.classList.add('edit');
+    //editElement.innerHTML = '<i class="fas fa-edit"></i>';
+    //newItem.appendChild(editElement);
+
     
     
     // Add edit button
@@ -78,6 +85,7 @@ function renderList() {
     editElement.innerHTML = '<i class="fas fa-edit"></i>';
     newItem.appendChild(editElement);
     editElement.addEventListener('click', (event) => editItem(event));
+
 
 
 

@@ -19,7 +19,6 @@ function renderSelectedMonth() {
     const dateContainer = document.getElementById('date-container');
     resetCalendar();
     uppdateMonthName(date);
-    //uppdateMonthDays(date);
     getCalendar(date, dateContainer);
 }
 
@@ -34,43 +33,19 @@ function getCalendar(date, dateContainer) {
     const month = (date.getMonth() + 1);
     const year = (date.getFullYear());
     const day = (date.getDate());
-    const today =(date.getDay())
     for (let i = 1; i <= daysOfMonth; i++) {
         const dayContainer = document.createElement('div');
         dayContainer.innerText = i;
         const searchDate = (year + "-" + String(month).padStart(2, '0') + "-" + (String(i).padStart(2, '0')));
         dayContainer.setAttribute("data-date", searchDate)
         dateContainer.appendChild(dayContainer);
-        markUpCurrentDay(dayContainer);
-        /* console.log(month, day);
-        if (i === day) {
+        if (date.getFullYear() === new Date().getFullYear() &&
+            date.getMonth() === new Date().getMonth() &&
+            date.getDate() === i) {
             dayContainer.style.backgroundColor = 'red';
-        } */ 
+        } 
     }
 }
-
-
-/* if (i === day) {
-    dayContainer.style.backgroundColor = 'red';
-}  */ 
-
-/* new. date full ye<ar day month
-for loop Ov
-emtyp box create tom div */
-
-/* function markUpCurrentDay(){
-    const day = date.getDay();
-    console.log(day)
-    
-    
-
-    } */
-    //document.getElementsByTagName('data-date').style.backgroundColor = 'red'; */
-    
-   /*  var sDate = nDate.getMonth()+1 + "_" + nDate.getDate();
-    document.getElementById(sDate).style.backgroundColor = 'cyan'; */
-
-
 
 function resetCalendar() {
     document.getElementById('date-container').innerHTML = '';
@@ -92,14 +67,27 @@ function uppdateMonthName(date) {
     document.getElementById('current-month').innerText = monthName;
 }
 
-function markUpCurrentDay(dayContainer){
-    const printDate = date.getDate();
-    const today = date.getDay();
-    if (printDate == today) {
-    dayContainer.style.backgroundColor = 'red';
-    }
-}
+/* function markUpCurrentDay(date, i, day, dayContainer){
+    //let today = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+    /* let dd = date.getDate();
+    let mm = date.getMonth() + 1; */
 
+
+    /* if (dd === date) {
+        dayContainer.style.backgroundColor = 'red';
+    } */
+
+    
+
+  /*   console.log(dd, mm) */
+
+   /* if (date === dd & mm) {
+       dayContainer.style.backgroundColor = 'red';
+
+   } */
+  
+
+function renderPrevMonthDays() {
 const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
 const prevLastDay = new Date(date.getFullYear(), date.getMonth(), 0).getDate();
 const firstDay = date.getDay();
@@ -107,13 +95,7 @@ const firstDay = date.getDay();
 const days = "";
 for (let i = firstDay; i > 0; i--) {
     days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
+    console.log(days)
 }
-
-/* function uppdateMonthDays(date) {
-    const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-    const weekday = days[date.getDay()];
-    document.getElementById('current-weekday').innerText = weekday;
-    
-} */
-
-
+}
+renderPrevMonthDays()
