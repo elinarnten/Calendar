@@ -1,5 +1,3 @@
-
-// const weekday = ["Måndag","Tisdag","Onsdag","Torsdag","Fredag","Lördag","Söndag"];
 const date = new Date();
 window.onload = ('load', main);
 
@@ -7,7 +5,6 @@ function main() {
     renderSelectedMonth();
     getHolidays();
     addEventListener();
-    /* markUpCurrentDay(date) */
 }
 
 function addEventListener() {
@@ -19,6 +16,7 @@ function renderSelectedMonth() {
     const dateContainer = document.getElementById('date-container');
     resetCalendar();
     uppdateMonthName(date);
+    syncDatesAndWeekdays(date, dateContainer);
     getCalendar(date, dateContainer);
 }
 
@@ -26,6 +24,13 @@ async function getHolidays() {
     fetch('http://sholiday.faboul.se/dagar/v2.1/2015')
     .then(res => res.json())
     .then(data => console.log(data));
+}
+function syncDatesAndWeekdays (date, dateContainer) {
+    const weekdays = new Date(date.getFullYear(), date.getMonth(), 0).getDay();
+    for (let i = 0; i < weekdays; i++) {
+        let prevDaysContainers = document.createElement('div');
+        dateContainer.appendChild(prevDaysContainers);
+    }
 }
 
 function getCalendar(date, dateContainer) {
@@ -66,36 +71,3 @@ function uppdateMonthName(date) {
     const monthName = months[date.getMonth()] +" "+ date.getFullYear();
     document.getElementById('current-month').innerText = monthName;
 }
-
-/* function markUpCurrentDay(date, i, day, dayContainer){
-    //let today = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
-    /* let dd = date.getDate();
-    let mm = date.getMonth() + 1; */
-
-
-    /* if (dd === date) {
-        dayContainer.style.backgroundColor = 'red';
-    } */
-
-    
-
-  /*   console.log(dd, mm) */
-
-   /* if (date === dd & mm) {
-       dayContainer.style.backgroundColor = 'red';
-
-   } */
-  
-
-function renderPrevMonthDays() {
-const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
-const prevLastDay = new Date(date.getFullYear(), date.getMonth(), 0).getDate();
-const firstDay = date.getDay();
-
-const days = "";
-for (let i = firstDay; i > 0; i--) {
-    days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
-    console.log(days)
-}
-}
-renderPrevMonthDays()
