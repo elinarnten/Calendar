@@ -12,38 +12,31 @@ let tasklist = [
 //Add Item function
 function addTask () {
   if (inputElement.value) {
-    tasklist.push(inputElement.value);
+    tasklist.push(inputElement.value);    
     renderList();
   }
 }
 
+function editItem (event, span, item, deleteElement, editElement) {
+let editInput = document.createElement('input');
+editInput.value = item;
+span.innerHTML = "";
+span.appendChild(editInput);
+deleteElement.innerHTML = '<i class="fas fa-times"></i>';
+let saveEditIcon = document.createElement('i');
+saveEditIcon.innerHTML = '<i id="saveEdit" class="fas fa-check"></i>';
+editElement.innerHTML = '';
+editElement.appendChild(saveEditIcon)
+// Om editElement klickas ska editInput.value ska sparas och visas som inneHTML för span. 
+editElement.addEventListener('submit', saveEdit(event, span, item, saveEditIcon, editInput));
 
-//Edit Item function
-function editItem(event) {
-let item = event.target.innerHTML;
-let itemInput = document.createElement('input');
-itemInput.type ='text';
-itemInput.value = item;
-itemInput.classList.add('edit');
-itemInput.addEventListener('keypress', saveItem);
-itemInput.addEventListener('click', saveItem);
-event.target.parentNode.prepend(itemInput);
-event.target.remove();
-itemInput.select();
-  
+}
+function saveEdit(event, span, item, saveEditIcon, editInput) {
+
+console.log(item)
 }
 
-function saveItem(event) {
-  let inputValue = event.target.value;
-  if (event.target.value.length > 0 && (event.keyCode ===13 || event.type === 'click')) {
-    let li = document.createElement('li');
-    li.addEventListener('click', toggleDone);
-    li.addEventListener('dblclick', editItem);
-    li.textContent = event.target.value;
-    event.target.parentNode.prepend('li');
-    event.target.remove();
-  }
-}
+
 
 //Delete Item function
 function deleteItem(event) {
@@ -65,28 +58,18 @@ function renderList() {
     newItem.appendChild(span);
 
     //Add delete button
-    let deleteElement = document.createElement('a');
+    let deleteElement = document.createElement('i');
     deleteElement.classList.add('delete');
     deleteElement.innerHTML = '<i class="fas fa-trash"></i>';
     newItem.appendChild(deleteElement);
     deleteElement.addEventListener('click', (event) => deleteItem(event));
-
-    //Add edit button
-    //let editElement = document.createElement('a');
-    //editElement.classList.add('edit');
-    //editElement.innerHTML = '<i class="fas fa-edit"></i>';
-    //newItem.appendChild(editElement);
-
-    
     
     // Add edit button
     let editElement = document.createElement('i');
     editElement.classList.add('edit');
-    editElement.innerHTML = '<i class="fas fa-edit"></i>';
+    editElement.innerHTML = '<i id="editIcon" class="fas fa-edit"></i>';
     newItem.appendChild(editElement);
-    editElement.addEventListener('click', (event) => editItem(event));
-
-
+    editElement.addEventListener('click', (event) => editItem(event, span, item, deleteElement, editElement));
 
 
     // add li to ul

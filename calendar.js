@@ -47,7 +47,10 @@ function getCalendar(date, dateContainer) {
         if (date.getFullYear() === new Date().getFullYear() &&
             date.getMonth() === new Date().getMonth() &&
             date.getDate() === i) {
-            dayContainer.style.backgroundColor = 'red';
+            dayContainer.style.backgroundColor = '#7978a0';
+            dayContainer.style.borderRadius = '0.5rem';
+            dayContainer.style.color = 'white';
+            
         } 
     }
 }
