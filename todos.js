@@ -11,6 +11,7 @@ function addTask() {
   if (inputElement.value) {
     tasklist.push(inputElement.value);
     renderList();
+    console.log(tasklist)
   }
 }
 
@@ -22,7 +23,6 @@ function showTodoDate(item, span) {
 }
 
 function editItem(event, span, item, deleteElement, editElement) {
-  console.log('gjghxfdzcd');
   let editInput = document.createElement("input");
   editInput.value = item;
   span.innerHTML = "";
@@ -34,10 +34,16 @@ function editItem(event, span, item, deleteElement, editElement) {
   editElement.appendChild(saveEditIcon);
   // Om editElement klickas ska editInput.value ska sparas och visas som inneHTML för span.
   editElement.onclick = (event) =>
-    saveEdit(event, span, item, saveEditIcon, editInput);
+    saveEdit(event, span, item, saveEditIcon, editInput, deleteElement, editElement);
 }
-function saveEdit(event, span, item, saveEditIcon, editInput) {
-  console.log(item);
+function saveEdit(event, span, item, saveEditIcon, editInput, deleteElement, editElement) {
+  index = 0;
+   if (index === tasklist.indexOf(item)){
+     tasklist.push(editInput.value)
+     tasklist.splice(index, 1);
+   }
+
+  renderList();
 }
 
 //Delete Item function
