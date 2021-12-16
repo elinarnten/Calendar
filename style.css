@@ -118,25 +118,34 @@ li {
 
 .list ul li {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
+   justify-content: space-between;
     
+    align-items: center;
+    cursor: pointer;    
 }
-.list ul li i {
+
+.list i {
     cursor: pointer;
     color: red;
-    padding: 1rem;
-    
+    padding: 1rem; 
+    display: flex; 
 }
+
+
+#editIcon {
+    color: black;
+    display: flex;
+    justify-content: flex-end;
+}
+
 .list ul li i:hover {
     background-color: #f1f1f1;
 } 
 
-
-.i {
-    cursor: pointer;
+#saveEdit {
+    color: green;
 }
+
 .add-task {
     padding: 2rem;
     display: flex;
