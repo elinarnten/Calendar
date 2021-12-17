@@ -50,7 +50,6 @@ function getCalendar(date, dateContainer) {
             dayContainer.style.backgroundColor = '#7978a0';
             dayContainer.style.borderRadius = '0.5rem';
             dayContainer.style.color = 'white';
-            
         } 
     }
 }
