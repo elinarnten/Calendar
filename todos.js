@@ -2,46 +2,68 @@ let inputElement = document.querySelector("input");
 let formElement = document.querySelector("form");
 let listElement = document.querySelector("ul");
 let totalTasksElement = document.querySelector("#total-tasks");
+let inputDate = document.getElementById("inputDate");
 
-let tasklist = [];
-console.log(tasklist);
+const tasklist = [];
+/* const filteredTasklist = tasklist.filter(dateFilter);
+
+function dateFilter(date) {
+  return date === date;
+}
+console.log(filteredTasklist) 
+console.log(task) */
 
 //Add Item function
-function addTask(dateContainer) {
+function addTask() {
   if (inputElement.value) {
-    tasklist.push(inputElement.value);
+    tasklist.push({task: inputElement.value, taskDate: inputDate.value});
+    addTodoToCalendar(tasklist);
     renderList();
-    console.log(tasklist)
-    
   }
 }
 
-let inputDate = document.getElementById("inputDate");
-function showTodoDate(item, todoContainer, dateContainer, newItem) {
-   /*  if (inputDate.value) {
-    tasklist.push(inputDate.value);
-  }  */
-  /* if (inputDate.value) {
-    tasklist.push(inputDate.value);
-    //renderList();
-    dateContainer.appendChild(inputDate)
-  } */
+ function addTodoToCalendar(tasklist) {
+   const calenderContainer = document.getElementById('date-container');
+   const childList = Array.from(calenderContainer.children);
+   tasklist.forEach((item) => {
+     childList.forEach((day) => {
+       if (day.attributes.length > 0) {
+         if (day.attributes[0].textContent === item.taskDate) {
+          
+          
+          /*  date.style.background = 'red'; */
+           let numberOfItemsPerDay = document.createElement('p');
+            day.appendChild(numberOfItemsPerDay);
+           numberOfItemsPerDay.innerText = tasklist.length;
+            numberOfItemsPerDay.setAttribute('id', 'items-day');  
+         }
+       }
+     });
+   });
+  }
   
-  dateContainer.innerHTML = inputDate.value;
-  newItem.appendChild(dateContainer);
-  console.log(dateContainer)
-}
+  function removeFromCalendar(item) {
+    const calenderContainer = document.getElementById('date-container');
+    const childList = Array.from(calenderContainer.children);
+    childList.forEach((day) => {
+      if (day.attributes.length > 0) {
+        if (day.attributes[0].textContent === item.taskDate) { //innan togs bakgrundfärg bort. 
+          tasklist.splice(0, 1);
+        }
+      } //splice array.filter
+    });
+  }
+
 //editInput sparas och blir unikt - dess värde är item. 
-function editItem(event, todoContainer, item, deleteElement, editElement, dateContainer) {
+function editItem(todoContainer, item, deleteElement, editElement, dateContainer) {
   let editInput = document.createElement("input");
-  editInput.value = item;
+  editInput.value = item.task;
   todoContainer.innerHTML = "";
   todoContainer.appendChild(editInput);
-  console.log(item);
   
   let editDate = document.createElement("input");
   editDate.setAttribute("type", "date");
-  editDate.value = inputDate.value; //Hur få datum att vara inte vara samma, samt hur ändra datum. 
+  editDate.value = item.taskDate; 
   dateContainer.innerHTML = "";
   dateContainer.appendChild(editDate);
 
@@ -50,74 +72,62 @@ function editItem(event, todoContainer, item, deleteElement, editElement, dateCo
   saveEditIcon.innerHTML = '<i id="saveEdit" class="fas fa-check"></i>';
   editElement.innerHTML = "";
   editElement.appendChild(saveEditIcon);
-  // Om editElement klickas ska editInput.value ska sparas och visas som inneHTML för todoContainer.
-  editElement.onclick = (event) =>
-    saveEdit(event, todoContainer, item, saveEditIcon, editInput, deleteElement, editElement, dateContainer, editDate);
+  editElement.onclick = () => saveEdit(item, editInput, editDate);
 }
 
-function saveEdit(event, todoContainer, item, saveEditIcon, editInput, deleteElement, editElement, dateContainer, editDate){
+function saveEdit(item, editInput, editDate){
   let index = tasklist.indexOf(item);
    if (index === tasklist.indexOf(item)){
-     tasklist.push(editInput.value) // då ändras och skrivs det ut som en ny todo. Datumet. 
+     tasklist.push({task: editInput.value, date: editDate.value}); 
      tasklist.splice(index, 1);
    }
-
+  removeFromCalendar(item);
+  addTodoToCalendar(tasklist);
   renderList();
 }
 
 //Delete Item function
-function deleteItem(event) {
-  let itemitem = event.target.parentElement.previousElementSibling.innerHTML;
-  let index = tasklist.indexOf(itemitem);
+function deleteItem(item) {
+  let itemToDelete = item;
+  let index = tasklist.indexOf(itemToDelete);
   if (index !== -1) {
     tasklist.splice(index, 1);
   }
+  removeFromCalendar(item);
   renderList();
-  console.log(itemitem)
 }
 
 function renderList() {
-  //let datedate = event.target.parentElement.previousElementSibling.innerHTML;
-
   listElement.innerHTML = "";
   tasklist.forEach(function (item) {
     let newItem = document.createElement("li");
     //Add a new todoContainer
     let todoContainer = document.createElement("p");
     let dateContainer = document.createElement('p')
-    dateContainer.innerHTML = "";
-    todoContainer.innerHTML = item;
-    newItem.appendChild(todoContainer, dateContainer);
-    console.log(item, newItem)
-  
-    //Add date in calendar
-    //document.getElementById = 'date-container';
+    dateContainer.innerHTML = item.taskDate;
+    todoContainer.innerHTML = item.task;
+    newItem.appendChild(todoContainer)
+    newItem.appendChild(dateContainer);
     
-   
-
-
     //Add delete button
     let deleteElement = document.createElement("i");
     deleteElement.classList.add("delete");
     deleteElement.innerHTML = '<i class="fas fa-trash"></i>';
     newItem.appendChild(deleteElement);
-    deleteElement.addEventListener("click", (event) => deleteItem(event));
+    deleteElement.addEventListener("click", () => deleteItem(item)); // lägg till ny ikon med nytt klickevent. 
 
     // Add edit button
     let editElement = document.createElement("i");
     editElement.classList.add("edit");
     editElement.innerHTML = '<i id="editIcon" class="fas fa-edit"></i>';
     newItem.appendChild(editElement);
-    editElement.onclick = ((event) =>
-      editItem(event, todoContainer, item, deleteElement, editElement, dateContainer)
-    );
-    showTodoDate(item, todoContainer, dateContainer, newItem);
+    editElement.onclick = () => editItem(todoContainer, item, deleteElement, editElement, dateContainer);
 
     // add li to ul
     listElement.appendChild(newItem);
   });
   totalTasksElement.innerHTML = tasklist.length;
-  inputElement.value = "";
+  //inputElement.value = "";
 }
 renderList();
 
