@@ -33,7 +33,7 @@ function syncDatesAndWeekdays (date, dateContainer) {
     }
 }
 
-function getCalendar(date, dateContainer) {
+function getCalendar(date, dateContainer, item, taskDate) {
     const daysOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
     const month = (date.getMonth() + 1);
     const year = (date.getFullYear());
@@ -50,8 +50,23 @@ function getCalendar(date, dateContainer) {
             dayContainer.style.backgroundColor = '#7978a0';
             dayContainer.style.borderRadius = '0.5rem';
             dayContainer.style.color = 'white';
-            
-        } 
+        }
+        
+       const todosForCurrentDay = tasklist.filter((item) => { 
+           if (item.taskDate === date.getFullYear() && date.getMonth() && date.getDate()) {
+           //item.taskDate === date.getMonth() &&
+            //item.taskDate === date.getDate()) {
+               dayContainer.style.backgroundColor = '#7978a0';
+               dayContainer.style.borderRadius = '0.5rem';
+               dayContainer.style.color = 'white';
+            }
+        })
+        console.log(date.getDate())
+
+    
+        // Filterera ut alla todos för den aktuella dagen i loopen
+        // Skapa badge utifrån filtreringen
+        
     }
 }
 
