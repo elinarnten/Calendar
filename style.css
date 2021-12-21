@@ -37,8 +37,11 @@ body {
     background-color: #d8d7fc;
     grid-column: 2/9;
     grid-row: 2/9;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
-.item4 { 
+
+/* .item4 { 
     grid-area: footer; 
     background-color: #d8d7fc; 
     grid-column: 1/9;
@@ -47,14 +50,13 @@ body {
     height:2rem;
     padding-top: .5rem;
     padding-right: 1rem;
-}
+} */
 
 .grid-container {
   display: grid; 
   grid-auto-rows: minmax(100px, auto);
   grid-gap: 10px;
-  
-  padding: 10px;
+  padding: 0px;
   height: 100vh;
  
 }
@@ -70,7 +72,7 @@ font-family: 'Fuzzy Bubbles', cursive;
 
 li {
     list-style-type: none;
-    padding:.5rem;
+    /* padding:.5rem; */
     font-family: 'Fuzzy Bubbles', cursive;
 }
 
@@ -83,22 +85,22 @@ li {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 80%;
+    height: 60%;
 }
 
 .todo-list {
     background-color: whitesmoke;
     display: flex;
     flex-direction: column;
-    min-width: 400px;
-    max-width: 600px;
+    /* min-width: 400px;
+    max-width: 600px; */
     border-radius: 10px;
     height: 500px;
     box-shadow: 0px 0px 20px whitesmoke;
 }
 
 .header {
-    padding: 2rem;
+    padding-top: 2rem;
 }
 .header h3 {
     color: grey;
@@ -127,7 +129,7 @@ li {
 .list i {
     cursor: pointer;
     color: red;
-    padding: 1rem; 
+    padding: 0.5rem; 
     display: flex; 
 }
 
@@ -201,6 +203,8 @@ border: 1px solid #DDD;
 
 
 
-@media (max-width: 400px) {
+@media (max-width: 700px) {
+    .item3{display: none;}
+    .item1{grid-column: 1;}
 
 }
