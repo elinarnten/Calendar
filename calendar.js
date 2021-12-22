@@ -44,7 +44,7 @@ function getCalendar(date, dateContainer) {
         const searchDate = (year + "-" + String(month).padStart(2, '0') + "-" + (String(i).padStart(2, '0')));
         dayContainer.setAttribute("data-date", searchDate)
         dateContainer.appendChild(dayContainer);
-        console.log(searchDate)
+        
         if (date.getFullYear() === new Date().getFullYear() &&
             date.getMonth() === new Date().getMonth() &&
             date.getDate() === i) {
@@ -54,15 +54,20 @@ function getCalendar(date, dateContainer) {
         }
          const todosForCurrentDay = tasklist.filter((item) => { 
             
-            if (item.taskDate == searchDate) {
-                let numberOfItemsPerDay = document.createElement('p');
-               
-                dayContainer.appendChild(numberOfItemsPerDay);
-                numberOfItemsPerDay.innerText = [];
-                numberOfItemsPerDay.setAttribute('id', 'items-day'); 
-                // console.log(searchDate) 
-             }
-            })
+            if (item.taskDate === searchDate) {
+                //let index = 0; index < item.taskDate; index++;  
+                    let numberOfItemsPerDay = document.createElement('div');
+                    dayContainer.appendChild(numberOfItemsPerDay);
+                    numberOfItemsPerDay.innerText = ""//todosForCurrentDay.length;
+                    // let number = document.createElement('p');
+                   // numberOfItemsPerDay.appendChild(number);
+                    //number.innerHTML = "";
+                    numberOfItemsPerDay.setAttribute('id', 'items-day'); 
+                console.log();   
+            // för varje item i listan ska i bli antingen ++ eller -- (innerHTML = i++/i--)
+            }    
+            //
+        })
     }   
 }
 
