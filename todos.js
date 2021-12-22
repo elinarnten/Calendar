@@ -17,14 +17,14 @@ console.log(task) */
 function addTask() {
   if (inputElement.value) {
     tasklist.push({task: inputElement.value, taskDate: inputDate.value});
-    // addTodoToCalendar(tasklist);
+    //addTodoToCalendar(tasklist, item);
     renderSelectedMonth();
-    //getCalendar();
+    //getCalendar(item);
     renderList();
   }
 }
 
- function addTodoToCalendar(tasklist) {
+/*  function addTodoToCalendar(tasklist) {
    const calenderContainer = document.getElementById('date-container');
    const childList = Array.from(calenderContainer.children);
    tasklist.forEach((item) => {
@@ -34,28 +34,29 @@ function addTask() {
           
           
           /*  date.style.background = 'red'; */
-           let numberOfItemsPerDay = document.createElement('p');
+           /* let numberOfItemsPerDay = document.createElement('p');
             day.appendChild(numberOfItemsPerDay);
            numberOfItemsPerDay.innerText = tasklist.length;
             numberOfItemsPerDay.setAttribute('id', 'items-day');  
-         }
-         getCalendar(item, taskDate);
-       }
+         } */
+         //getCalendar(item);
+      /*  }
      });
    });
-  }
+  }  */
   
-  function removeFromCalendar(item) {
+ /*  function removeFromCalendar(item) {
     const calenderContainer = document.getElementById('date-container');
     const childList = Array.from(calenderContainer.children);
     childList.forEach((day) => {
       if (day.attributes.length > 0) {
         if (day.attributes[0].textContent === item.taskDate) { //innan togs bakgrundfärg bort. 
           tasklist.splice(0, 1);
-        }
-      } //splice array.filter
-    });
-  }
+        } */
+     /*  }  */
+      //splice array.filter
+  /*   });
+  }  */
 
 //editInput sparas och blir unikt - dess värde är item. 
 function editItem(todoContainer, item, deleteElement, editElement, dateContainer) {
@@ -140,11 +141,11 @@ function renderList() {
 
     // add li to ul
     listElement.appendChild(newItem);
+    //getCalendar(item);
   });
   totalTasksElement.innerHTML = tasklist.length;
   //inputElement.value = "";
 }
-//getCalendar();
 renderList();
 
 formElement.addEventListener("submit", function (event) {

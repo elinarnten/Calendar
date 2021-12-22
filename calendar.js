@@ -3,7 +3,7 @@ window.onload = ('load', main);
 
 function main() {
     renderSelectedMonth();
-    getHolidays();
+    //getHolidays();
     addEventListener();
 }
 
@@ -20,11 +20,11 @@ function renderSelectedMonth() {
     getCalendar(date, dateContainer);
 }
 
-async function getHolidays() {
+/* async function getHolidays() {
     fetch('http://sholiday.faboul.se/dagar/v2.1/2015')
     .then(res => res.json())
     .then(data => console.log(data));
-}
+} */
 function syncDatesAndWeekdays (date, dateContainer) {
     const weekdays = new Date(date.getFullYear(), date.getMonth(), 0).getDay();
     for (let i = 0; i < weekdays; i++) {
@@ -33,7 +33,7 @@ function syncDatesAndWeekdays (date, dateContainer) {
     }
 }
 
-function getCalendar(date, dateContainer, item, taskDate) {
+function getCalendar(date, dateContainer) {
     const daysOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
     const month = (date.getMonth() + 1);
     const year = (date.getFullYear());
@@ -44,6 +44,7 @@ function getCalendar(date, dateContainer, item, taskDate) {
         const searchDate = (year + "-" + String(month).padStart(2, '0') + "-" + (String(i).padStart(2, '0')));
         dayContainer.setAttribute("data-date", searchDate)
         dateContainer.appendChild(dayContainer);
+        console.log(searchDate)
         if (date.getFullYear() === new Date().getFullYear() &&
             date.getMonth() === new Date().getMonth() &&
             date.getDate() === i) {
@@ -51,24 +52,22 @@ function getCalendar(date, dateContainer, item, taskDate) {
             dayContainer.style.borderRadius = '0.5rem';
             dayContainer.style.color = 'white';
         }
-        
-       const todosForCurrentDay = tasklist.filter((item) => { 
-           if (item.taskDate === date.getFullYear() && date.getMonth() && date.getDate()) {
-           //item.taskDate === date.getMonth() &&
-            //item.taskDate === date.getDate()) {
-               dayContainer.style.backgroundColor = '#7978a0';
-               dayContainer.style.borderRadius = '0.5rem';
-               dayContainer.style.color = 'white';
-            }
-        })
-        console.log(date.getDate())
-
-    
-        // Filterera ut alla todos för den aktuella dagen i loopen
-        // Skapa badge utifrån filtreringen
-        
-    }
+         const todosForCurrentDay = tasklist.filter((item) => { 
+            
+            if (item.taskDate == searchDate) {
+                let numberOfItemsPerDay = document.createElement('p');
+               
+                dayContainer.appendChild(numberOfItemsPerDay);
+                numberOfItemsPerDay.innerText = [];
+                numberOfItemsPerDay.setAttribute('id', 'items-day'); 
+                // console.log(searchDate) 
+             }
+            })
+    }   
 }
+
+    // Skapa badge utifrån filtreringen
+    // Filterera ut alla todos för den aktuella dagen i loopen
 
 function resetCalendar() {
     document.getElementById('date-container').innerHTML = '';
