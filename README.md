@@ -21,4 +21,6 @@ These are the requirements:
 - Användaren skall kunna ändra en todo - (VG)
 - Användaren skall kunna växa till andra månader i kalendervyn - (VG)
 - Svenska helgdagar visas i kalendern - (VG)
-- Filtrera todolistan utifrån vald dag i kalendern, det ska gå avmarkera vald dag (VG)
+- Filtrera todolistan utifrån vald dag i kalendern, det ska gå avmarkera vald dag (VG) <br/> <br/>
+
+[Demo](https://elinarnten.github.io/MiniProjekt/)
