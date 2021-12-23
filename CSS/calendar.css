@@ -5,19 +5,19 @@
     width: 100%;
 }
 
+#holiday {
+    color: red;
+    font-size: 1rem;
+}
+
 #date-container {
     padding: 0.2rem;
     display: flex;
     flex-wrap: wrap;
-    
-    /*font-size: 2rem; */
 }
 
 #date-container div {
-    /* font-size: 1.4rem; */
-    /* margin: 0.3rem; */
     width: calc(100%/7);
-    /* height: 5rem; */
     display: flex;
     justify-content: center;
     align-items: center;
