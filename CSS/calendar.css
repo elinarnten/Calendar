@@ -9,44 +9,57 @@
     padding: 0.2rem;
     display: flex;
     flex-wrap: wrap;
+    
     /*font-size: 2rem; */
 }
 
 #date-container div {
-    font-size: 1.4rem;
+    /* font-size: 1.4rem; */
     /* margin: 0.3rem; */
     width: calc(100%/7);
-    height: 5rem;
+    /* height: 5rem; */
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 #date-container div:hover {
     background-color: #8a89af9f;
     border-radius: 0.5rem;
     color: white;
     transition: 0.5s;
+    cursor: pointer;
 }
+
 .month {
     padding: 1rem;
     display: flex;
     align-items: center;
 }
 
+#current-month {
+    font-family: 'Fuzzy Bubbles', cursive;
+}
+
+.material-icons {
+    font-size: 3rem;
+}
+
 #weekdays {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
-
+    padding: 1rem;  
 }
 #weekdays div {
+    font-family: 'Fuzzy Bubbles', cursive;
+    font-size: 1.5rem;
     width: calc(100%/7);
     display: flex;
     justify-content: center;
     align-items: center;
-    text-shadow: 0 0.2rem 0.3rem #7978a0 /* rgba *//* (0, 0, 0, 0.5) */; 
 }
+
 .days {
     width: 100%;
     display: flex;
@@ -55,4 +68,23 @@
 }
 #prev-button, #next-button {
     cursor:pointer;
+}
+
+#items-day {
+    color: black;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: whitesmoke;
+    border-radius: 20%;
+    height: 1.5rem;
+    font-size: 1rem;
+    padding: 0.1rem;
+    
+}
+
+#day-container {
+    position: relative;
+    height: 5rem;
+    font-size: 1.5rem;
 }

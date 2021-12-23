@@ -5,13 +5,6 @@ let totalTasksElement = document.querySelector("#total-tasks");
 let inputDate = document.getElementById("inputDate");
 
 const tasklist = [];
-/* const filteredTasklist = tasklist.filter(dateFilter);
-
-function dateFilter(date) {
-  return date === date;
-}
-console.log(filteredTasklist) 
-console.log(task) */
 
 //Add Item function
 function addTask() {
@@ -23,41 +16,7 @@ function addTask() {
     renderList();
   }
 }
-
-/*  function addTodoToCalendar(tasklist) {
-   const calenderContainer = document.getElementById('date-container');
-   const childList = Array.from(calenderContainer.children);
-   tasklist.forEach((item) => {
-     childList.forEach((day) => {
-       if (day.attributes.length > 0) {
-         if (day.attributes[0].textContent === item.taskDate) {
-          
-          
-          /*  date.style.background = 'red'; */
-           /* let numberOfItemsPerDay = document.createElement('p');
-            day.appendChild(numberOfItemsPerDay);
-           numberOfItemsPerDay.innerText = tasklist.length;
-            numberOfItemsPerDay.setAttribute('id', 'items-day');  
-         } */
-         //getCalendar(item);
-      /*  }
-     });
-   });
-  }  */
-  
- /*  function removeFromCalendar(item) {
-    const calenderContainer = document.getElementById('date-container');
-    const childList = Array.from(calenderContainer.children);
-    childList.forEach((day) => {
-      if (day.attributes.length > 0) {
-        if (day.attributes[0].textContent === item.taskDate) { //innan togs bakgrundfärg bort. 
-          tasklist.splice(0, 1);
-        } */
-     /*  }  */
-      //splice array.filter
-  /*   });
-  }  */
-
+   
 //editInput sparas och blir unikt - dess värde är item. 
 function editItem(todoContainer, item, deleteElement, editElement, dateContainer) {
   let editInput = document.createElement("input");
@@ -88,8 +47,7 @@ function editItem(todoContainer, item, deleteElement, editElement, dateContainer
 function saveEdit(item, editInput, editDate){
   item.task = editInput.value;
   item.taskDate = editDate.value;
-  removeFromCalendar(item);
-  addTodoToCalendar(tasklist);
+  main();
   renderList();
 }
 
@@ -108,8 +66,7 @@ function deleteItem(item) {
   if (index !== -1) {
     tasklist.splice(index, 1);
   }
-  //removeFromCalendar(item);
-  // renderCalendar();
+  main();
   renderList();
 }
 
@@ -117,6 +74,7 @@ function renderList() {
   listElement.innerHTML = "";
   tasklist.forEach(function (item) {
     let newItem = document.createElement("li");
+    newItem.setAttribute("id", "new-item");
     //Add a new todoContainer
     let todoContainer = document.createElement("p");
     let dateContainer = document.createElement('p')

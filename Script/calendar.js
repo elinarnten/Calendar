@@ -40,6 +40,7 @@ function getCalendar(date, dateContainer) {
     const day = (date.getDate());
     for (let i = 1; i <= daysOfMonth; i++) {
         const dayContainer = document.createElement('div');
+        dayContainer.setAttribute("id", "day-container");
         dayContainer.innerText = i;
         const searchDate = (year + "-" + String(month).padStart(2, '0') + "-" + (String(i).padStart(2, '0')));
         dayContainer.setAttribute("data-date", searchDate)
@@ -52,24 +53,34 @@ function getCalendar(date, dateContainer) {
             dayContainer.style.borderRadius = '0.5rem';
             dayContainer.style.color = 'white';
         }
-         const todosForCurrentDay = tasklist.filter((item) => { 
-            
+        
+        const todosForCurrentDay = [];
+        let numberOfItemsPerDay = document.createElement("div");
+        numberOfItemsPerDay.setAttribute("id", "items-day");
+        tasklist.filter((item) => {
             if (item.taskDate === searchDate) {
-                //let index = 0; index < item.taskDate; index++;  
-                    let numberOfItemsPerDay = document.createElement('div');
-                    dayContainer.appendChild(numberOfItemsPerDay);
-                    numberOfItemsPerDay.innerText = ""//todosForCurrentDay.length;
-                    // let number = document.createElement('p');
-                   // numberOfItemsPerDay.appendChild(number);
-                    //number.innerHTML = "";
-                    numberOfItemsPerDay.setAttribute('id', 'items-day'); 
-                console.log();   
-            // för varje item i listan ska i bli antingen ++ eller -- (innerHTML = i++/i--)
-            }    
-            //
-        })
-    }   
+            dayContainer.appendChild(numberOfItemsPerDay);
+            todosForCurrentDay.push(item);
+            numberOfItemsPerDay.innerText = todosForCurrentDay.length;
+            dayContainer.onclick = () => showInTodoList(item, todosForCurrentDay);  
+          }   
+          //console.log(todosForCurrentDay)
+    }); 
+}  
 }
+
+function showInTodoList(item, todosForCurrentDay) {
+    todosForCurrentDay.filter((item) => {
+    if (todosForCurrentDay.length < 0) {
+       /* let newItem = document.getElementById('new-item'); 
+       newItem.innerHTML = 'hej';
+       listElement.appendChild(newItem);*/
+    }
+    console.log(todosForCurrentDay.length)
+})
+
+}
+
 
     // Skapa badge utifrån filtreringen
     // Filterera ut alla todos för den aktuella dagen i loopen
