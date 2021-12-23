@@ -1,11 +1,12 @@
 # MiniProjekt
 
-**The task**
-
 This is a group project with three contributors. <br/>
 **Rosanna Pistone** [(rosannapistone)](https://github.com/rosannapistone) <br/>
 **Jannie Bäckman Kuurne** [(Jannie87)](https://github.com/Jannie87) <br/>
 **Elin Arntén** [(elinarnten)](https://github.com/elinarnten) <br/>
+
+
+**The task**
 
 In this project we are making a calendar. The calendar should contain an overview over a month and the user should be able to add some task to a specific day. <br/> <br/>
 These are the requirements:
