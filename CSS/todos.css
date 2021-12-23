@@ -96,3 +96,18 @@ span {
     color: #EEE;
     cursor: pointer;
 }
+
+#show-all-tasks {
+    border-radius: 10%;
+    border: none;
+    width: 5rem;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    background-color: #7978a0;
+    color: white;
+}
+
+#show-all-tasks:hover {
+    background-color: #d8d7fc;
+    cursor: pointer;
+}

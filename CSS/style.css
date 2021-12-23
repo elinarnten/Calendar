@@ -29,7 +29,6 @@ font-family: 'Fuzzy Bubbles', cursive;
     background-color: #d8d7fc; 
     grid-column: 1/1;
     grid-row: 2/9;
-    padding: .5rem;
 }
 
 .item3 { 
@@ -58,7 +57,14 @@ font-family: 'Fuzzy Bubbles', cursive;
 .grow {flex: 1;}
 
 /*Mediaqueries*/
+@media (max-width: 950px) {
+.item2{height: 100vh;}
+.item3{height: 100vh;}
+}
 @media (max-width: 700px) {
     .item3{display: none;}
     .item1{grid-column: 1;}
+    .todo-list {width: 25rem;}
+    .add-task{width: 25rem;
+    padding: 0;}
 }

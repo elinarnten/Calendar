@@ -62,24 +62,20 @@ function getCalendar(date, dateContainer) {
             dayContainer.appendChild(numberOfItemsPerDay);
             todosForCurrentDay.push(item);
             numberOfItemsPerDay.innerText = todosForCurrentDay.length;
-            dayContainer.onclick = () => showInTodoList(item, todosForCurrentDay);  
+            dayContainer.onclick = () => showInTodoList(todosForCurrentDay);  
           }   
           //console.log(todosForCurrentDay)
     }); 
 }  
 }
 
-function showInTodoList(item, todosForCurrentDay) {
+function showInTodoList(todosForCurrentDay) {
     todosForCurrentDay.filter((item) => {
-    if (todosForCurrentDay.length < 0) {
-       /* let newItem = document.getElementById('new-item'); 
-       newItem.innerHTML = 'hej';
-       listElement.appendChild(newItem);*/
-    }
-    console.log(todosForCurrentDay.length)
-})
-
-}
+      if (todosForCurrentDay.length > 0) {
+        renderList(todosForCurrentDay);
+      }
+    });
+  }
 
 
     // Skapa badge utifrån filtreringen
