@@ -5,55 +5,18 @@ let totalTasksElement = document.querySelector("#total-tasks");
 let inputDate = document.getElementById("inputDate");
 
 const tasklist = [];
-/* const filteredTasklist = tasklist.filter(dateFilter);
-
-function dateFilter(date) {
-  return date === date;
-}
-console.log(filteredTasklist) 
-console.log(task) */
 
 //Add Item function
 function addTask() {
   if (inputElement.value) {
     tasklist.push({task: inputElement.value, taskDate: inputDate.value});
-    addTodoToCalendar(tasklist);
+    //addTodoToCalendar(tasklist, item);
+    renderSelectedMonth();
+    //getCalendar(item);
     renderList();
   }
 }
-
- function addTodoToCalendar(tasklist) {
-   const calenderContainer = document.getElementById('date-container');
-   const childList = Array.from(calenderContainer.children);
-   tasklist.forEach((item) => {
-     childList.forEach((day) => {
-       if (day.attributes.length > 0) {
-         if (day.attributes[0].textContent === item.taskDate) {
-          
-          
-          /*  date.style.background = 'red'; */
-           let numberOfItemsPerDay = document.createElement('p');
-            day.appendChild(numberOfItemsPerDay);
-           numberOfItemsPerDay.innerText = tasklist.length;
-            numberOfItemsPerDay.setAttribute('id', 'items-day');  
-         }
-       }
-     });
-   });
-  }
-  
-  function removeFromCalendar(item) {
-    const calenderContainer = document.getElementById('date-container');
-    const childList = Array.from(calenderContainer.children);
-    childList.forEach((day) => {
-      if (day.attributes.length > 0) {
-        if (day.attributes[0].textContent === item.taskDate) { //innan togs bakgrundfärg bort. 
-          tasklist.splice(0, 1);
-        }
-      } //splice array.filter
-    });
-  }
-
+   
 //editInput sparas och blir unikt - dess värde är item. 
 function editItem(todoContainer, item, deleteElement, editElement, dateContainer) {
   let editInput = document.createElement("input");
@@ -67,24 +30,34 @@ function editItem(todoContainer, item, deleteElement, editElement, dateContainer
   dateContainer.innerHTML = "";
   dateContainer.appendChild(editDate);
 
-  deleteElement.innerHTML = '<i class="fas fa-times"></i>';
-  let saveEditIcon = document.createElement("i");
-  saveEditIcon.innerHTML = '<i id="saveEdit" class="fas fa-check"></i>';
+  const undoEditIcon = document.createElement("i");
+  undoEditIcon.className = "fas fa-times";
+  deleteElement.innerHTML = "";
+  deleteElement.appendChild(undoEditIcon);
+  deleteElement.onclick = renderList;
+  
+  const saveEditIcon = document.createElement("i");
+  saveEditIcon.className = "fas fa-check";
+  saveEditIcon.id = "saveEdit";
   editElement.innerHTML = "";
   editElement.appendChild(saveEditIcon);
   editElement.onclick = () => saveEdit(item, editInput, editDate);
 }
 
 function saveEdit(item, editInput, editDate){
-  let index = tasklist.indexOf(item);
-   if (index === tasklist.indexOf(item)){
-     tasklist.push({task: editInput.value, date: editDate.value}); 
-     tasklist.splice(index, 1);
-   }
-  removeFromCalendar(item);
-  addTodoToCalendar(tasklist);
+  item.task = editInput.value;
+  item.taskDate = editDate.value;
+  main();
   renderList();
 }
+
+// const a = 2; // Value Semantic
+// const b = "hejsan" // Value Semantic
+// const c = { foo: 24 }; // Reference Semantic
+// const d = [1,2,3]; // Reference Semantic
+
+// let e = d;
+// e.push(4);
 
 //Delete Item function
 function deleteItem(item) {
@@ -93,7 +66,7 @@ function deleteItem(item) {
   if (index !== -1) {
     tasklist.splice(index, 1);
   }
-  removeFromCalendar(item);
+  main();
   renderList();
 }
 
@@ -101,6 +74,7 @@ function renderList() {
   listElement.innerHTML = "";
   tasklist.forEach(function (item) {
     let newItem = document.createElement("li");
+    newItem.setAttribute("id", "new-item");
     //Add a new todoContainer
     let todoContainer = document.createElement("p");
     let dateContainer = document.createElement('p')
@@ -114,7 +88,7 @@ function renderList() {
     deleteElement.classList.add("delete");
     deleteElement.innerHTML = '<i class="fas fa-trash"></i>';
     newItem.appendChild(deleteElement);
-    deleteElement.addEventListener("click", () => deleteItem(item)); // lägg till ny ikon med nytt klickevent. 
+    deleteElement.onclick = () => deleteItem(item); // lägg till ny ikon med nytt klickevent. 
 
     // Add edit button
     let editElement = document.createElement("i");
@@ -125,6 +99,7 @@ function renderList() {
 
     // add li to ul
     listElement.appendChild(newItem);
+    //getCalendar(item);
   });
   totalTasksElement.innerHTML = tasklist.length;
   //inputElement.value = "";
