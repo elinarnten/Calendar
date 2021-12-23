@@ -23,6 +23,7 @@
     align-items: center;
     flex-direction: column;
 }
+
 #date-container div:hover {
     background-color: #8a89af9f;
     border-radius: 0.5rem;
@@ -35,15 +36,13 @@
     padding: 1rem;
     display: flex;
     align-items: center;
+    background-color: #7978a0;
+    border-radius:10px;
 }
 
-#current-month {
-    font-family: 'Fuzzy Bubbles', cursive;
-}
+#current-month {font-family: 'Fuzzy Bubbles', cursive;}
 
-.material-icons {
-    font-size: 3rem;
-}
+.material-icons {font-size: 3rem;}
 
 #weekdays {
     display: flex;
@@ -51,6 +50,7 @@
     align-items: center;
     padding: 1rem;  
 }
+
 #weekdays div {
     font-family: 'Fuzzy Bubbles', cursive;
     font-size: 1.5rem;
@@ -66,9 +66,8 @@
     flex-wrap: wrap;
     padding: 0.2rem;
 }
-#prev-button, #next-button {
-    cursor:pointer;
-}
+
+#prev-button, #next-button {cursor:pointer;}
 
 #items-day {
     color: black;
@@ -79,8 +78,7 @@
     border-radius: 20%;
     height: 1.5rem;
     font-size: 1rem;
-    padding: 0.1rem;
-    
+    padding: 0.1rem;   
 }
 
 #day-container {

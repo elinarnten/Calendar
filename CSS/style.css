@@ -3,7 +3,7 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-body {background-color: white;}
+body {background-color: #d8d7fc;}
 
 h3 {
 font-size: 1.5rem;
@@ -28,7 +28,7 @@ font-family: 'Fuzzy Bubbles', cursive;
     grid-area: sidebar;   
     background-color: #d8d7fc; 
     grid-column: 1/1;
-    grid-row: 2/9;
+    grid-row: 2/9;  
 }
 
 .item3 { 
@@ -37,7 +37,7 @@ font-family: 'Fuzzy Bubbles', cursive;
     grid-column: 2/9;
     grid-row: 2/9;
     padding-left: 2rem;
-    padding-right: 2rem;
+    padding-right: 2rem;  
 }
 
 .grid-container {
@@ -57,14 +57,10 @@ font-family: 'Fuzzy Bubbles', cursive;
 .grow {flex: 1;}
 
 /*Mediaqueries*/
-@media (max-width: 950px) {
-.item2{height: 100vh;}
-.item3{height: 100vh;}
-}
-@media (max-width: 700px) {
+@media (max-width: 1300px) {
     .item3{display: none;}
     .item1{grid-column: 1;}
-    .todo-list{width: 25rem;}
+    .todo-list{width: 30rem;}
     .todo-list input {width: 5rem;
     }
 }
