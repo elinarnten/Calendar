@@ -64,7 +64,7 @@ font-family: 'Fuzzy Bubbles', cursive;
 @media (max-width: 700px) {
     .item3{display: none;}
     .item1{grid-column: 1;}
-    .todo-list {width: 25rem;}
-    .add-task{width: 25rem;
-    padding: 0;}
+    .todo-list{width: 25rem;}
+    .todo-list input {width: 5rem;
+    }
 }
