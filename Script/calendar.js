@@ -74,7 +74,7 @@ function renderCalendar(date, dateContainer) {
             dayContainer.appendChild(numberOfItemsPerDay);
             todosForCurrentDay.push(item);
             numberOfItemsPerDay.innerText = todosForCurrentDay.length;
-            dayContainer.onclick = () => showInTodoList(item, todosForCurrentDay);  
+            dayContainer.onclick = () => showInTodoList(todosForCurrentDay);  
           }   
         }); 
           //console.log(todosForCurrentDay)
@@ -91,18 +91,13 @@ function renderCalendar(date, dateContainer) {
     }  
 }
 
-function showInTodoList(item, todosForCurrentDay) {
+function showInTodoList(todosForCurrentDay) {
     todosForCurrentDay.filter((item) => {
-    if (todosForCurrentDay.length < 0) {
-       let newItem = document.getElementById('new-item'); 
-       newItem.innerHTML = 'hej';
-       listElement.appendChild(newItem);
-    }
-    console.log(todosForCurrentDay.length)
-})
-}
-    // Skapa badge utifrån filtreringen
-    // Filterera ut alla todos för den aktuella dagen i loopen
+      if (todosForCurrentDay.length > 0) {
+        renderList(todosForCurrentDay);
+      }
+    });
+  }
 
 function resetCalendar() {
     document.getElementById('date-container').innerHTML = '';

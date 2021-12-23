@@ -13,7 +13,7 @@ function addTask() {
     //addTodoToCalendar(tasklist, item);
     renderSelectedMonth();
     //getCalendar(item);
-    renderList();
+    renderList(tasklist);
   }
 }
    
@@ -48,7 +48,7 @@ function saveEdit(item, editInput, editDate){
   item.task = editInput.value;
   item.taskDate = editDate.value;
   main();
-  renderList();
+  renderList(tasklist);
 }
 
 // const a = 2; // Value Semantic
@@ -67,10 +67,13 @@ function deleteItem(item) {
     tasklist.splice(index, 1);
   }
   main();
-  renderList();
+  renderList(tasklist);
 }
 
-function renderList() {
+const showAllButton = document.getElementById("show-all-tasks");
+showAllButton.onclick = () => renderList(tasklist);
+
+function renderList(tasklist) {
   listElement.innerHTML = "";
   tasklist.forEach(function (item) {
     let newItem = document.createElement("li");
@@ -104,7 +107,7 @@ function renderList() {
   totalTasksElement.innerHTML = tasklist.length;
   //inputElement.value = "";
 }
-renderList();
+renderList(tasklist);
 
 formElement.addEventListener("submit", function (event) {
   event.preventDefault();
