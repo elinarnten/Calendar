@@ -21,11 +21,6 @@ function renderSelectedMonth() {
     renderCalendar(date, dateContainer);
 }
 
-/* async function getHolidays() {
-    fetch('http://sholiday.faboul.se/dagar/v2.1/2015/01')
-    .then(res => res.json())
-    .then(data => console.log(data));
-} */
 async function getHolidays() { 
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
@@ -34,7 +29,6 @@ async function getHolidays() {
     
     holidays = data.dagar.filter((day) => day.helgdag);
     renderSelectedMonth();
-    console.log([holidays])
 } 
   
 function syncDatesAndWeekdays (date, dateContainer) {
@@ -49,7 +43,7 @@ function renderCalendar(date, dateContainer) {
     const daysOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
     const month = (date.getMonth() + 1);
     const year = (date.getFullYear());
-    /* const day = (date.getDate()); */
+
     for (let i = 1; i <= daysOfMonth; i++) {
         const dayContainer = document.createElement('div');
         dayContainer.setAttribute("id", "day-container");
@@ -77,7 +71,6 @@ function renderCalendar(date, dateContainer) {
             dayContainer.onclick = () => showInTodoList(todosForCurrentDay);  
           }   
         }); 
-          //console.log(todosForCurrentDay)
 
           let holidayPerMonth = document.createElement("p");
           holidayPerMonth.setAttribute("id", "holiday");
