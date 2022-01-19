@@ -34,7 +34,6 @@ async function getHolidays() {
     
     holidays = data.dagar.filter((day) => day.helgdag);
     renderSelectedMonth();
-    console.log([holidays])
 } 
   
 function syncDatesAndWeekdays (date, dateContainer) {
