@@ -4,15 +4,13 @@ let listElement = document.querySelector("ul");
 let totalTasksElement = document.querySelector("#total-tasks");
 let inputDate = document.getElementById("inputDate");
 
-const tasklist = JSON.parse(localStorage.getItem("tasklist"));
+const tasklist = [];
 
 //Add Item function
 function addTask() {
   if (inputElement.value) {
     tasklist.push({task: inputElement.value, taskDate: inputDate.value});
     renderSelectedMonth();
-    localStorage.setItem("tasklist", JSON.stringify(tasklist));
-    console.log(tasklist)
     renderList(tasklist);
   }
 }
