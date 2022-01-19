@@ -57,6 +57,7 @@ font-family: 'Fuzzy Bubbles', cursive;
 .grow {flex: 1;}
 
 /*Mediaqueries*/
+
 @media (max-width: 1300px) {
     .item3{display: none;}
     .item1{grid-column: 1;}
