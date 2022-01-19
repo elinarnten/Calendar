@@ -61,6 +61,5 @@ font-family: 'Fuzzy Bubbles', cursive;
     .item3{display: none;}
     .item1{grid-column: 1;}
     .todo-list{width: 30rem;}
-    .todo-list input {width: 5rem;
-    }
+    .todo-list input {width: 5rem;}
 }

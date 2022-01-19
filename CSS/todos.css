@@ -3,7 +3,7 @@
 .todo-container {
     background: linear-gradient(#d8d7fc, #7978a0,#d8d7fc);
     display: flex;
-    flex-grow:1; 
+    /* flex-grow:1; */ 
     flex-direction: column;
     align-items: center;
     justify-content: center;
